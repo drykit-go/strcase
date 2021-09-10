@@ -20,3 +20,15 @@ func TestCamel(t *testing.T) {
 		// {In: "my_HTTP_header", Exp: "myHTTPHeader"}, // FIXME: -> myHTTPheader
 	}).Run(t)
 }
+
+func TestPascal(t *testing.T) {
+	testx.Table(strcase.Pascal, nil).Cases([]testx.Case{
+		{In: "a", Exp: "A"},
+		{In: "abc", Exp: "Abc"},
+		{In: "name", Exp: "Name"},
+		{In: "AAAAAa", Exp: "AAAAAa"},
+		{In: "someName", Exp: "SomeName"},
+		{In: "httpHeader", Exp: "HTTPHeader"},
+		{In: "myHTTPHeader", Exp: "MyHTTPHeader"},
+	}).Run(t)
+}
